@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Node.js + EJS</title>
+  </head>
+  <body>
+    <!-- views/index.ejs -->
+    <div class="container">
+      <div class="create-project">
+        <% if (!showForm) { %>
+        <button id="create-project-btn">Create Project</button>
+        <% } else { %> <%- include('form'); -%> <% } %>
+      </div>
+      <div class="list-projects">
+        <h2>List of Projects</h2>
+        <ul>
+          <!-- your list of projects here -->
+        </ul>
+      </div>
+    </div>
+
+    <script src="/js/form.js"></script>
+  </body>
+</html>

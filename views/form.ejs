@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <!-- views/form.ejs -->
+    <form id="form-project" method="post" , action="/create-project">
+      <input
+        type="text"
+        placeholder="Project Name"
+        name="name"
+        id="project-name"
+        required
+      />
+      <input
+        type="text"
+        placeholder="Project Description"
+        name="desc"
+        id="project-name"
+        required
+      />
+      <input
+        type="text"
+        placeholder="Author"
+        id="project-author"
+        name="author"
+        required
+      />
+      <button type="submit">Submit</button>
+    </form>
+  </body>
+</html>
