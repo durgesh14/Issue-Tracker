@@ -2,19 +2,25 @@
 <html>
   <head>
     <title>Node.js + EJS</title>
+    <link rel="stylesheet" href="/css/home.css" />
   </head>
   <body>
     <!-- views/index.ejs -->
+    <header>Dashboard</header>
     <div class="container">
       <div class="create-project">
         <% if (!showForm) { %>
-        <button id="create-project-btn">Create Project</button>
+        <button id="create-project-btn" class="create-btn">
+          Create Project
+        </button>
         <% } else { %> <%- include('form'); -%> <% } %>
       </div>
       <div class="list-projects">
         <h2>List of Projects</h2>
         <ul>
-          <!-- your list of projects here -->
+          <% projects.forEach(function(project) { %>
+          <li id="<%= project.id %>"><%= project.name %></li>
+          <% }); %>
         </ul>
       </div>
     </div>

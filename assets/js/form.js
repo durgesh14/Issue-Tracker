@@ -15,3 +15,13 @@ createProjectBtn.addEventListener("click", () => {
     }`
   );
 });
+
+const lis = document.querySelectorAll("li");
+lis.forEach(function (li) {
+  li.addEventListener("click", function (e) {
+    // get the id of the clicked li
+    const id = e.target.id;
+    // redirect the user to the bugs page with the id of the project
+    window.location.href = `/bugs?projectId=${id}`;
+  });
+});

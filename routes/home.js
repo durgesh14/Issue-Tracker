@@ -22,4 +22,9 @@ router.post("/toggle-form", (req, res) => {
 
 router.post("/create-project", homeController.createProject);
 
+router.get("/bugs", homeController.detailsPage);
+router.get("/create-issue", homeController.issuePage);
+router.post("/create-issue", homeController.createIssue);
+
+router.get("/match-labels", homeController.getMatch);
 module.exports = router;
