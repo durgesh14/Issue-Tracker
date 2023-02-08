@@ -22,6 +22,7 @@
         <div class="modal__content">
           <h1>Create an Issue:</h1>
           <form action="/create-issue" method="post">
+            <input type="hidden" name="projectId" value="<%= projectId %>" />
             <div class="issue-form">
               <div class="issue-form-title">
                 <label for="title">Title</label>
@@ -42,12 +43,13 @@
               </div>
               <div class="issue-form-labels">
                 <label for="labels">Labels:</label>
-                <input type="text" id="label-input" name="labels" />
-                <select id="labels" name="labels" multiple>
-                  <% labels.forEach(function(label){ %>
-                  <option><%= label.name %></option>
+
+                <input type="text" name="labels" list="label-options" />
+                <datalist id="label-options">
+                  <% labels.map((item) => { %>
+                  <option><%= item.labels %></option>
                   <% }); %>
-                </select>
+                </datalist>
               </div>
               <button class="form-btn" type="submit">Submit</button>
             </div>

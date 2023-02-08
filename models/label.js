@@ -6,6 +6,10 @@ const labelSchema = new Schema({
     type: String,
     required: true,
   },
+  project: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Project",
+  },
 });
 
 const Label = mongoose.model("Label", labelSchema);

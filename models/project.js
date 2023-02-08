@@ -1,5 +1,7 @@
 const mongoose = require("mongoose");
 //Creating Schema for user having email, password name and timestamp
+
+//Todo - add issue in schema
 const projectSchema = new mongoose.Schema(
   {
     name: {

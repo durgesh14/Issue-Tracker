@@ -20,6 +20,10 @@ const issueSchema = new Schema({
     type: String,
     required: true,
   },
+  project: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Project",
+  },
 });
 
 module.exports = mongoose.model("Issue", issueSchema);
