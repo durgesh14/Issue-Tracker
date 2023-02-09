@@ -3,8 +3,8 @@ const Schema = mongoose.Schema;
 
 const labelSchema = new Schema({
   labels: {
-    type: String,
-    required: true,
+    type: Array,
+    required: false,
   },
   project: {
     type: mongoose.Schema.Types.ObjectId,

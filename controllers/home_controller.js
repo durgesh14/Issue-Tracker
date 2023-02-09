@@ -43,10 +43,6 @@ module.exports.detailsPage = async (req, res) => {
 
   const labels = await Label.find({ project });
 
-  labels.map((item) => {
-    // console.log("label: ", item.labels);
-  });
-
   res.render("details", { project, labels, projectId });
 };
 
@@ -57,9 +53,11 @@ module.exports.createIssue = async (req, res) => {
   const projectId = req.body.projectId;
   console.log("projectId", projectId);
   const labelIds = [];
-  const newLabel = new Label({ labels, project: projectId });
-  labelIds.push(newLabel._id);
-  await newLabel.save();
+  if (labels != "") {
+    const newLabel = new Label({ labels, project: projectId });
+    labelIds.push(newLabel._id);
+    await newLabel.save();
+  }
 
   const newIssue = new Issue({
     title,

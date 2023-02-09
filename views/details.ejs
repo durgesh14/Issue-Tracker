@@ -43,13 +43,24 @@
               </div>
               <div class="issue-form-labels">
                 <label for="labels">Labels:</label>
-
-                <input type="text" name="labels" list="label-options" />
-                <datalist id="label-options">
-                  <% labels.map((item) => { %>
-                  <option><%= item.labels %></option>
-                  <% }); %>
-                </datalist>
+                <input type="text" name="labels" id="issue-labels" />
+                <div class="dropdown">
+                  <button class="dropdown-button">Select Labels</button>
+                  <div class="dropdown-content">
+                    <% labels.map((item) => { %>
+                    <div class="dropdown-item">
+                      <input
+                        type="checkbox"
+                        value="<%= item.labels %>"
+                        id="<%= item.labels %>"
+                      />
+                      <label for="<%= item.labels %>">
+                        <%= item.labels %>
+                      </label>
+                    </div>
+                    <% }); %>
+                  </div>
+                </div>
               </div>
               <button class="form-btn" type="submit">Submit</button>
             </div>

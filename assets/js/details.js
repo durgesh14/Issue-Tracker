@@ -1,41 +1,50 @@
-// document.querySelector("#openModalBtn").addEventListener("click", function () {
-//   document.querySelector("#modal").style.display = "block";
-// });
+//Handling labels
+const dropdownButton = document.querySelector(".dropdown-button");
+const dropdownContent = document.querySelector(".dropdown-content");
+const submitButton = document.querySelector("#submit-labels");
 
-// document.querySelector(".close-btn").addEventListener("click", function () {
-//   document.querySelector("#modal").style.display = "none";
-// });
+dropdownButton.addEventListener("click", function () {
+  if (dropdownContent.classList.contains("show")) {
+    dropdownContent.classList.remove("show");
+  } else {
+    dropdownContent.classList.add("show");
+  }
+});
 
-// // window.addEventListener("click", function (event) {
-// //   if (event.target == document.querySelector("#modal")) {
-// //     document.querySelector("#modal").style.display = "none";
-// //   }
-// // });
-// Get the input element where the user types the label
+// handling labels checkbox
+const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+const selectedValues = [];
 
-var input = document.getElementById("label-input");
-
-// Get the dropdown element where the matching labels will be displayed
-var dropdown = document.getElementById("labels");
-
-// Listen for changes to the input value
-input.addEventListener("input", function () {
-  // Get the input value
-  var value = input.value;
-
-  // Get the labels for the selected project that match the input
-  var labels = getMatchingLabels(value);
-  console.log("clickeddd", labels);
-  // Clear the current dropdown options
-  dropdown.innerHTML = "";
-
-  // Populate the dropdown with the matching labels
-  labels.forEach(function (label) {
-    var option = document.createElement("option");
-    option.value = label.name;
-    option.innerHTML = label.name;
-    dropdown.appendChild(option);
+checkboxes.forEach((checkbox) => {
+  checkbox.addEventListener("change", function (event) {
+    if (event.target.checked) {
+      selectedValues.push(event.target.value);
+    } else {
+      const index = selectedValues.indexOf(event.target.value);
+      if (index > -1) {
+        selectedValues.splice(index, 1);
+      }
+    }
+    console.log(selectedValues);
   });
+});
+
+//handling input behaviour of labels
+const input = document.getElementById("issue-labels");
+const container = input.parentNode;
+
+input.addEventListener("keydown", function (event) {
+  if (event.key === "Enter") {
+    event.preventDefault();
+    const value = event.target.value.trim();
+    if (value) {
+      const tag = document.createElement("span");
+      tag.classList.add("tag");
+      tag.textContent = value;
+      container.insertBefore(tag, input);
+      input.value = "";
+    }
+  }
 });
 
 async function getMatchingLabels(value) {
