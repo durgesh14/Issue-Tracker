@@ -10,12 +10,11 @@ const issueSchema = new Schema({
     type: String,
     required: true,
   },
-  labels: [
-    {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Label",
-    },
-  ],
+  labels: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Label",
+  },
+
   author: {
     type: String,
     required: true,

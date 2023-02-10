@@ -8,14 +8,15 @@
     <link rel="stylesheet" href="/css/details.css" />
   </head>
   <body>
-    <div class="nav">
-      <header><%= project.name %></header>
-      <!-- <button class="issue-btn" id="openModalBtn" type="submit">
-        Create Issue
-      </button> -->
+    <div class="container">
+      <div class="nav">
+        <div class="header">
+          <span><%= project.name %></span>
+        </div>
 
-      <div class="wrapper">
-        <a href="#issue-modal">Create Issue</a>
+        <div class="wrapper">
+          <a href="#issue-modal">Create Issue</a>
+        </div>
       </div>
 
       <div id="issue-modal" class="modal">
@@ -43,26 +44,36 @@
               </div>
               <div class="issue-form-labels">
                 <label for="labels">Labels:</label>
-                <input type="text" name="labels" id="issue-labels" />
+                <input type="text" id="issue-labels" />
+                <input type="hidden" name="labels" id="labels" />
                 <div class="dropdown">
-                  <button class="dropdown-button">Select Labels</button>
+                  <button
+                    class="dropdown-button"
+                    onclick="event.preventDefault();"
+                  >
+                    Select Labels
+                  </button>
                   <div class="dropdown-content">
-                    <% labels.map((item) => { %>
+                    <% labels.map((items) => { %> <% items.labels.map((item) =>
+                    { %> <% const labelArray = item.split(","); %> <%
+                    labelArray.forEach((label) => { %> <% if (label !== "") { %>
                     <div class="dropdown-item">
                       <input
                         type="checkbox"
-                        value="<%= item.labels %>"
-                        id="<%= item.labels %>"
+                        value="<%= label.trim() %>"
+                        id="<%= label.trim() %>"
                       />
-                      <label for="<%= item.labels %>">
-                        <%= item.labels %>
+                      <label for="<%= label.trim() %>">
+                        <%= label.trim() %>
                       </label>
                     </div>
-                    <% }); %>
+                    <%}%> <% }); %> <% }); %> <% }); %>
                   </div>
                 </div>
               </div>
-              <button class="form-btn" type="submit">Submit</button>
+              <button class="form-btn" type="submit" onclick="labelsArray()">
+                Submit
+              </button>
             </div>
           </form>
 
@@ -71,6 +82,13 @@
       </div>
     </div>
     <div class="issue-container">
+      <% issues.map(item => { %>
+      <div class="issue-container-title"><%= item.title %></div>
+      <div class="issue-container-desc"><%= item.description %></div>
+      <div class="issue-container-title"><%= item.author %></div>
+
+      <% }) %>
+
       <div class="issue-container-filters"></div>
       <div class="issue-container-details"></div>
     </div>

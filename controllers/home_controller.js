@@ -43,20 +43,28 @@ module.exports.detailsPage = async (req, res) => {
 
   const labels = await Label.find({ project });
 
-  res.render("details", { project, labels, projectId });
+  const issues = await Issue.find({ project });
+
+  res.render("details", { project, labels, projectId, issues });
 };
 
 module.exports.issuePage = async (req, res) => {};
 
 module.exports.createIssue = async (req, res) => {
+  //TODO: currently lable is string need to modify the function for lable == array
   const { title, description, labels, author } = req.body;
   const projectId = req.body.projectId;
-  console.log("projectId", projectId);
+
   const labelIds = [];
-  if (labels != "") {
-    const newLabel = new Label({ labels, project: projectId });
-    labelIds.push(newLabel._id);
-    await newLabel.save();
+  const labelsArr = labels.split(", ");
+  console.log("labels", labelsArr);
+
+  if (Array.isArray(labelsArr) && labelsArr.length > 0) {
+    for (let label of labelsArr) {
+      const newLabel = new Label({ labels: label, project: projectId });
+      labelIds.push(newLabel._id);
+      await newLabel.save();
+    }
   }
 
   const newIssue = new Issue({

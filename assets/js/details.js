@@ -2,6 +2,8 @@
 const dropdownButton = document.querySelector(".dropdown-button");
 const dropdownContent = document.querySelector(".dropdown-content");
 const submitButton = document.querySelector("#submit-labels");
+const input = document.getElementById("issue-labels");
+const container = input.parentNode;
 
 dropdownButton.addEventListener("click", function () {
   if (dropdownContent.classList.contains("show")) {
@@ -18,20 +20,23 @@ const selectedValues = [];
 checkboxes.forEach((checkbox) => {
   checkbox.addEventListener("change", function (event) {
     if (event.target.checked) {
-      selectedValues.push(event.target.value);
+      const tag = document.createElement("span");
+      tag.classList.add("tag");
+      tag.textContent = event.target.value;
+      container.insertBefore(tag, input);
     } else {
-      const index = selectedValues.indexOf(event.target.value);
-      if (index > -1) {
-        selectedValues.splice(index, 1);
-      }
+      // Remove the tag
+      const tags = document.querySelectorAll(".tag");
+      tags.forEach((tag) => {
+        if (tag.textContent === event.target.value) {
+          tag.remove();
+        }
+      });
     }
-    console.log(selectedValues);
   });
 });
 
 //handling input behaviour of labels
-const input = document.getElementById("issue-labels");
-const container = input.parentNode;
 
 input.addEventListener("keydown", function (event) {
   if (event.key === "Enter") {
@@ -46,6 +51,16 @@ input.addEventListener("keydown", function (event) {
     }
   }
 });
+
+function labelsArray() {
+  const tags = document.querySelectorAll(".tag");
+  let tagTexts = [];
+  for (let tag of tags) {
+    tagTexts.push(tag.textContent);
+  }
+  console.log(tagTexts.join(", "));
+  document.getElementById("labels").value = tagTexts;
+}
 
 async function getMatchingLabels(value) {
   // Code to retrieve the labels for the selected project and match them against the input value

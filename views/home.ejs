@@ -19,7 +19,14 @@
         <h2>List of Projects</h2>
         <ul>
           <% projects.forEach(function(project) { %>
-          <li id="<%= project.id %>"><%= project.name %></li>
+
+          <div id="<%= project.id %>" class="project-details">
+            <div class="clickable">
+              <li class="project-details-name"><%= project.name %></li>
+              <li class="project-details-desc"><%= project.description %></li>
+              <li class="project-details-auth"><%= project.author %></li>
+            </div>
+          </div>
           <% }); %>
         </ul>
       </div>

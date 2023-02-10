@@ -5,6 +5,9 @@ header {
   padding: 5px;
   border-bottom: 1px dashed white;
 }
+h2 {
+  font-size: xx-large;
+}
 .container {
   display: flex;
   justify-content: space-between;
@@ -96,13 +99,13 @@ li {
   transition: 0.3s;
 }
 
-li:hover {
+/* li:hover {
   border-bottom: 1px solid #f5f5f5;
   font-size: 20px;
   padding: unset;
 
   cursor: pointer;
-}
+} */
 
 @-webkit-keyframes fadeIn {
   0% {
@@ -116,4 +119,34 @@ li:hover {
   100% {
     opacity: 1;
   }
+}
+.project-details {
+  display: flex;
+  flex-direction: column;
+  line-height: 1px;
+  border: 1px solid white;
+  border-radius: 15px;
+  padding: 10px;
+  width: 30vw;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.clickable {
+  display: flex;
+  flex-direction: column;
+}
+.project-details-name {
+  font-size: x-large;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-position: under;
+}
+.project-details-desc {
+  margin-top: 2px;
+  font-size: medium;
+}
+
+.project-details-auth {
+  font-size: 12px;
 }

@@ -16,11 +16,12 @@ createProjectBtn.addEventListener("click", () => {
   );
 });
 
-const lis = document.querySelectorAll("li");
-lis.forEach(function (li) {
-  li.addEventListener("click", function (e) {
-    // get the id of the clicked li
-    const id = e.target.id;
+const clickables = document.getElementsByClassName("clickable");
+console.log(clickables);
+Array.from(clickables).forEach(function (clickable) {
+  clickable.addEventListener("click", function (e) {
+    // get the id of the parent div (project-details)
+    const id = e.currentTarget.parentNode.id;
     // redirect the user to the bugs page with the id of the project
     window.location.href = `/bugs?projectId=${id}`;
   });
