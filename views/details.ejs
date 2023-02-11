@@ -81,16 +81,27 @@
         </div>
       </div>
     </div>
-    <div class="issue-container">
-      <% issues.map(item => { %>
-      <div class="issue-container-title"><%= item.title %></div>
-      <div class="issue-container-desc"><%= item.description %></div>
-      <div class="issue-container-title"><%= item.author %></div>
+    <div class="main-container">
+      <div class="filter-container">
+        <div class="filter-container-byLabel"></div>
+        <div class="filter-container-byAuthor"></div>
+        <div class="filter-container-search"></div>
+      </div>
+      <div class="issue-container">
+        <div class="issue-container-header">
+          <span> List of Issues</span>
+        </div>
+        <% issues.map(item => { %>
 
-      <% }) %>
+        <div class="issue-sub-container">
+          <div class="issue-container-title"><%= item.title %></div>
+          <div class="issue-container-desc"><%= item.description %></div>
+          <div class="issue-container-author"><%= item.author %></div>
+          <div class="issue-container-labels"><%= item.labels.labels %></div>
+        </div>
 
-      <div class="issue-container-filters"></div>
-      <div class="issue-container-details"></div>
+        <% }) %>
+      </div>
     </div>
     <script src="/js/details.js"></script>
   </body>

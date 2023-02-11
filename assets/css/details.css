@@ -3,12 +3,17 @@ body {
   background: #2e3138;
   color: #fff;
   height: 90vh;
+  background-image: url("/images/background.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 0;
 }
+
 .nav {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  border-bottom: 1px dashed white;
+  width: 100%;
 }
 
 .header {
@@ -16,24 +21,27 @@ body {
   text-align: center;
   padding: 5px;
   text-transform: uppercase;
+  display: flex;
+  align-self: center;
 }
 
 .wrapper {
   align-self: center;
+  margin-right: 10px;
 }
 
 /* CSS for pop up modal */
 .wrapper a {
   /* CSS for create issue link */
-  /* display: inline-block; */
   text-decoration: none;
   padding: 10px;
   margin: 2px;
-  background-color: #fff;
+  background-color: #e95667;
   border-radius: 8px;
   text-transform: uppercase;
-  color: #585858;
-  font-family: "Roboto", sans-serif;
+  color: #fff;
+  font-size: large;
+  font-weight: bold;
 }
 
 .modal {
@@ -61,8 +69,11 @@ body {
   position: relative;
   width: 500px;
   max-width: 90%;
-  background: #2e3138;
+
   padding: 1em 2em;
+  background-image: url("/images/modal-background.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .modal__close {
@@ -111,4 +122,114 @@ body {
   padding: 5px;
   margin-right: 5px;
   display: inline-block;
+}
+
+/* CSS for issue container */
+
+.container {
+  height: 73px;
+  display: flex;
+  color: #fff;
+
+  background-color: #00101c;
+  border-bottom: 1px solid white;
+}
+
+.main-container {
+  display: flex;
+  height: calc(100vh - 80px);
+}
+
+.filter-container {
+  width: 20%;
+  background-color: #246688;
+  padding: 20px;
+  box-sizing: border-box;
+  position: fixed;
+  left: 0;
+  top: 80px;
+  bottom: 0;
+}
+
+.issue-container {
+  width: 75%;
+  padding-top: 6px;
+  box-sizing: border-box;
+  overflow-y: hidden;
+  margin-left: 20%;
+  padding-left: 5%;
+}
+.issue-container-header {
+  font-size: xx-large;
+  font-weight: bold;
+  text-align: center;
+  margin: 10px;
+}
+
+.issue-sub-container {
+  padding: 10px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #246688;
+  border-radius: 15px;
+  padding-left: 15px;
+}
+
+.issue-container-title {
+  font-weight: bold;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  color: #00101c;
+  text-decoration: underline;
+}
+.issue-container-title::first-letter {
+  font-size: x-large;
+  font-weight: bold;
+  color: #00101c;
+}
+
+.issue-container-desc {
+  margin-bottom: 5px;
+}
+
+.issue-container-author {
+  font-style: italic;
+  margin-bottom: 5px;
+}
+
+.issue-container-labels {
+  font-size: 14px;
+  background-color: #f2f2f2;
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: #00101c;
+  margin-top: 10px;
+  font-weight: bold;
+  width: fit-content;
+}
+
+@media only screen and (max-width: 768px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .main-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .filter-container {
+    position: relative;
+    width: 100%;
+    background-color: #f2f2f2;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+
+  .issue-container {
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+  }
 }
