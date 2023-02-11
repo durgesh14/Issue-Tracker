@@ -7,11 +7,12 @@
     <title>Project Detail Page</title>
     <link rel="stylesheet" href="/css/details.css" />
   </head>
+
   <body>
     <div class="container">
       <div class="nav">
         <div class="header">
-          <span><%= project.name %></span>
+          <span> <%= project.name %> </span>
         </div>
 
         <div class="wrapper">
@@ -21,7 +22,7 @@
 
       <div id="issue-modal" class="modal">
         <div class="modal__content">
-          <h1>Create an Issue:</h1>
+          <h1>Create an Issue</h1>
           <form action="/create-issue" method="post">
             <input type="hidden" name="projectId" value="<%= projectId %>" />
             <div class="issue-form">
@@ -44,7 +45,7 @@
               </div>
               <div class="issue-form-labels">
                 <label for="labels">Labels:</label>
-                <input type="text" id="issue-labels" />
+                <!-- <input type="text" id="issue-labels" /> -->
                 <input type="hidden" name="labels" id="labels" />
                 <div class="dropdown">
                   <button
@@ -54,20 +55,30 @@
                     Select Labels
                   </button>
                   <div class="dropdown-content">
-                    <% labels.map((items) => { %> <% items.labels.map((item) =>
-                    { %> <% const labelArray = item.split(","); %> <%
-                    labelArray.forEach((label) => { %> <% if (label !== "") { %>
-                    <div class="dropdown-item">
+                    <div class="dropdown-item-label">
                       <input
-                        type="checkbox"
-                        value="<%= label.trim() %>"
-                        id="<%= label.trim() %>"
+                        type="text"
+                        id="issue-labels"
+                        placeholder="Enter label here"
                       />
-                      <label for="<%= label.trim() %>">
-                        <%= label.trim() %>
-                      </label>
                     </div>
-                    <%}%> <% }); %> <% }); %> <% }); %>
+                    <div class="dropdown-item-list">
+                      <% labels.map((items)=> { %> <% items.labels.map((item)=>
+                      { %> <% const labelArray=item.split(","); %> <%
+                      labelArray.forEach((label)=> { %> <% if (label !=="" ) {
+                      %>
+                      <div class="dropdown-item">
+                        <input
+                          type="checkbox"
+                          value="<%= label.trim() %>"
+                          id="<%= label.trim() %>"
+                        />
+                        <label for="<%= label.trim() %>">
+                          <%= label.trim() %>
+                        </label>
+                      </div>
+                      <%}%> <% }); %> <% }); %> <% }); %>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -83,15 +94,22 @@
     </div>
     <div class="main-container">
       <div class="filter-container">
+        <div class="filter-container-search">
+          <input
+            type="text"
+            name="search"
+            placeholder="Search by title or description"
+            id="filer-search"
+          />
+        </div>
         <div class="filter-container-byLabel"></div>
         <div class="filter-container-byAuthor"></div>
-        <div class="filter-container-search"></div>
       </div>
       <div class="issue-container">
         <div class="issue-container-header">
           <span> List of Issues</span>
         </div>
-        <% issues.map(item => { %>
+        <% issues.map(item=> { %>
 
         <div class="issue-sub-container">
           <div class="issue-container-title"><%= item.title %></div>

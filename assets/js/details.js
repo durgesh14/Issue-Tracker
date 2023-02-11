@@ -48,6 +48,15 @@ input.addEventListener("keydown", function (event) {
       tag.textContent = value;
       container.insertBefore(tag, input);
       input.value = "";
+
+      //creating checkbox when user hit(create) any new label
+      const newItem = document.createElement("div");
+      newItem.classList.add("dropdown-item");
+      newItem.innerHTML = `
+        <input type="checkbox" value="${value}" id="${value}" checked>
+        <label for="${value}">${value}</label>
+      `;
+      document.querySelector(".dropdown-item-list").appendChild(newItem);
     }
   }
 });
