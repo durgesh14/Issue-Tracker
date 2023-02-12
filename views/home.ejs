@@ -5,9 +5,9 @@
     <link rel="stylesheet" href="/css/home.css" />
   </head>
   <body>
-    <div class="overlay"></div>
     <!-- views/index.ejs -->
     <div class="header">
+      <img src="/images/fire.svg" alt="icon" />
       <header>Dashboard</header>
     </div>
     <div class="container">
@@ -20,18 +20,23 @@
       </div>
       <div class="list-projects">
         <h2>List of Projects</h2>
-        <ul>
-          <% projects.forEach(function(project) { %>
+        <div class="scrollable-list">
+          <ul>
+            <% projects.forEach(function(project) { %>
 
-          <div id="<%= project.id %>" class="project-details">
-            <div class="clickable">
-              <li class="project-details-name"><%= project.name %></li>
-              <li class="project-details-desc"><%= project.description %></li>
-              <li class="project-details-auth"><%= project.author %></li>
+            <div id="<%= project.id %>" class="project-details">
+              <div class="clickable">
+                <div class="img-and-name-container">
+                  <li class="project-details-name"><%= project.name %></li>
+                  <img src="/images/jira.svg" alt="icon" />
+                </div>
+                <li class="project-details-desc"><%= project.description %></li>
+                <li class="project-details-auth"><%= project.author %></li>
+              </div>
             </div>
-          </div>
-          <% }); %>
-        </ul>
+            <% }); %>
+          </ul>
+        </div>
       </div>
     </div>
 

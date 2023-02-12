@@ -10,14 +10,7 @@ body {
   margin: 0;
   opacity: 1;
 }
-.overlay {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background-color: rgba(0, 0, 0, 0.3);
-}
+
 header {
   font-size: xx-large;
   text-align: center;
@@ -28,6 +21,12 @@ header {
   height: 3em;
   background-color: #00101c;
   border-bottom: 1px solid white;
+  display: flex;
+  justify-content: center;
+}
+.header img {
+  width: 40px;
+  height: 40px;
 }
 h2 {
   font-size: xx-large;
@@ -52,6 +51,15 @@ h2 {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+.scrollable-list {
+  height: 45vh;
+  overflow-y: scroll;
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  scrollbar-width: none; /* Firefox */
+}
+.scrollable-list::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
 }
 
 .create-btn {
@@ -152,6 +160,15 @@ li {
 .clickable {
   display: flex;
   flex-direction: column;
+}
+.clickable img {
+  width: 40px;
+  height: 40px;
+}
+.img-and-name-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 .project-details-name {
   font-size: x-large;

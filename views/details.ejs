@@ -12,6 +12,9 @@
   <body>
     <div class="container">
       <div class="nav">
+        <div class="wrapper">
+          <a href="/home">Back</a>
+        </div>
         <div class="header">
           <span> <%= project.name %> </span>
         </div>
@@ -95,6 +98,9 @@
     </div>
     <div class="main-container">
       <div class="filter-container">
+        <div class="issue-container-header">
+          <span> Search & Filters</span>
+        </div>
         <div class="filter-container-search">
           <input
             type="text"
@@ -166,7 +172,11 @@
 
         <div class="issue-sub-container">
           <div class="issue-container-title"><%= item.title %></div>
-          <div class="issue-container-desc"><%= item.description %></div>
+          <div class="img-and-name-container">
+            <div class="issue-container-desc"><%= item.description %></div>
+
+            <img src="/images/defect.svg" alt="icon" />
+          </div>
           <div class="issue-container-author"><%= item.author %></div>
           <div class="issue-container-labels"><%= item.labels.labels %></div>
         </div>
