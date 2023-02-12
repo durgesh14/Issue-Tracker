@@ -1,30 +1,19 @@
 const express = require("express");
-const ejs = require("ejs");
-const fs = require("fs");
-const path = require("path");
 
 const router = express.Router();
 
 const homeController = require("../controllers/home_controller");
+const bugController = require("../controllers/bugs_controller");
 
 //GET request to "/sign-up".
+router.get("/", homeController.renderHome);
 router.get("/home", homeController.renderHome);
 
-router.post("/toggle-form", (req, res) => {
-  res.send(
-    ejs.render(
-      fs.readFileSync(path.join(__dirname, "../views", "form.ejs"), "utf-8"),
-      {},
-      { delimiter: "%" }
-    )
-  );
-});
+router.post("/toggle-form", homeController.togglForm);
 
 router.post("/create-project", homeController.createProject);
 
-router.get("/bugs", homeController.detailsPage);
-router.get("/create-issue", homeController.issuePage);
-router.post("/create-issue", homeController.createIssue);
+router.get("/bugs", bugController.detailsPage);
 
-router.get("/match-labels", homeController.getMatch);
+router.post("/create-issue", bugController.createIssue);
 module.exports = router;

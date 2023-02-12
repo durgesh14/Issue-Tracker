@@ -70,23 +70,3 @@ function labelsArray() {
   console.log(tagTexts.join(", "));
   document.getElementById("labels").value = tagTexts;
 }
-
-async function getMatchingLabels(value) {
-  // Code to retrieve the labels for the selected project and match them against the input value
-  //   const ans = ["example"];
-  //   return ans;
-  const queryString = window.location.search;
-  const urlParams = new URLSearchParams(queryString);
-  const projectId = urlParams.get("projectId");
-
-  fetch(`/match-labels?value=${value} + &projectId=${projectId}`)
-    .then((response) => response.json())
-    .then((data) => {
-      // Do something with the returned data
-      //Todo
-      console.log(data);
-    })
-    .catch((error) => {
-      console.error(error);
-    });
-}
