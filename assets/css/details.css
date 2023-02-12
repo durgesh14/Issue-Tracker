@@ -112,7 +112,6 @@ form {
 
 label {
   font-weight: bold;
-  margin-bottom: 10px;
 }
 input:focus,
 textarea:focus {
@@ -193,7 +192,7 @@ textarea {
   background-color: #246688;
   z-index: 1;
   display: none; /* hide the content by default */
-  width: 100%; /* set width to the full width of the parent element */
+  width: 120%; /* set width to the full width of the parent element */
   max-height: 200px; /* set maximum height for the content */
   overflow-y: auto; /* enable vertical scrolling */
   border-top-left-radius: 10px;
