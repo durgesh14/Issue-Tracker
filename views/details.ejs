@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Project Detail Page</title>
     <link rel="stylesheet" href="/css/details.css" />
+    <link rel="stylesheet" href="/css/filters.css" />
   </head>
 
   <body>
@@ -102,8 +103,60 @@
             id="filer-search"
           />
         </div>
-        <div class="filter-container-byLabel"></div>
-        <div class="filter-container-byAuthor"></div>
+        <div class="filter-container-byLabel">
+          <div class="filter-dropdown-label">
+            <button
+              class="filter-dropdown-label-button"
+              onclick="event.preventDefault();"
+            >
+              Select Labels
+            </button>
+            <div class="filter-dropdown-label-content">
+              <div class="filter-dropdown-label-item-list">
+                <% labels.map((items)=> { %> <% items.labels.map((item)=> { %>
+                <% const labelArray=item.split(","); %> <%
+                labelArray.forEach((label)=> { %> <% if (label !=="" ) { %>
+                <div class="filter-dropdown-label-item">
+                  <input
+                    type="checkbox"
+                    value="<%= label.trim() %>"
+                    id="<%= label.trim() %>"
+                  />
+                  <label for="<%= label.trim() %>"> <%= label.trim() %> </label>
+                </div>
+                <%}%> <% }); %> <% }); %> <% }); %>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="filter-container-byAuthor">
+          <div class="filter-dropdown-author">
+            <button
+              class="filter-dropdown-author-button"
+              onclick="event.preventDefault();"
+            >
+              Select Author
+            </button>
+            <div class="filter-dropdown-author-content">
+              <div class="filter-dropdown-author-item-list">
+                <% issues.map(item => { %>
+
+                <div class="filter-dropdown-author-item">
+                  <input
+                    type="checkbox"
+                    value="<%= item.author.trim() %>"
+                    id="<%= item.author.trim() %>"
+                  />
+                  <label for="<%= item.author.trim() %>">
+                    <%= item.author.trim() %>
+                  </label>
+                </div>
+
+                <% }) %>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="issue-container">
         <div class="issue-container-header">
@@ -122,5 +175,6 @@
       </div>
     </div>
     <script src="/js/details.js"></script>
+    <script src="/js/filters.js"></script>
   </body>
 </html>

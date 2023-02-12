@@ -1,0 +1,90 @@
+.filter-dropdown-author,
+.filter-dropdown-label {
+  position: relative;
+  width: 100%;
+}
+
+.filter-dropdown-author-button,
+.filter-dropdown-label-button {
+  position: relative;
+  display: flex;
+  width: inherit;
+  height: 3em;
+  line-height: 3;
+  background: #f2f2f2;
+  overflow: hidden;
+  border-radius: 0.25em;
+  font-weight: 600;
+}
+
+.filter-dropdown-author-button::after,
+.filter-dropdown-label-button::after {
+  content: "\25BC";
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0 1em;
+  background: #2b2e2e;
+  cursor: pointer;
+  pointer-events: none;
+  transition: 0.25s all ease;
+}
+.filter-dropdown-author-button:hover::after,
+.filter-dropdown-label-button:hover::after {
+  color: #3bb8f2;
+}
+
+.filter-dropdown-author-content,
+.filter-dropdown-label-content {
+  position: absolute;
+
+  left: 0;
+  background-color: #246688;
+  z-index: 1;
+  display: none; /* hide the content by default */
+  width: 100%; /* set width to the full width of the parent element */
+  max-height: 200px; /* set maximum height for the content */
+  overflow-y: auto; /* enable vertical scrolling */
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  scrollbar-width: none; /* Firefox */
+}
+
+.filter-dropdown-author-content::-webkit-scrollbar,
+.filter-dropdown-label-content::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+.filter-dropdown-author-item,
+.filter-dropdown-label-item {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+.filter-dropdown-author-item-label,
+.filter-dropdown-label-item-label {
+  width: 80%;
+}
+
+.filter-dropdown-author-item-label,
+.filter-dropdown-label-item-label input {
+  padding: 10px;
+  border-radius: 5px;
+
+  margin: 6px;
+}
+.filter-dropdown-author-item-list,
+.filter-dropdown-label-item-list {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+.filter-container-byLabel {
+  margin-bottom: 50px;
+  margin-top: 30px;
+}

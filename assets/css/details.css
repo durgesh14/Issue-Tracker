@@ -246,7 +246,7 @@ input[type="checkbox"] {
 /* end */
 
 .show {
-  display: block;
+  display: block !important;
 }
 .tag {
   display: none;

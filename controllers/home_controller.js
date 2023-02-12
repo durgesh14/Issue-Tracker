@@ -45,10 +45,6 @@ module.exports.detailsPage = async (req, res) => {
 
   const issues = await Issue.find({ project }).populate("labels");
 
-  issues.map((items) => {
-    console.log("start", items.labels.labels);
-  });
-
   res.render("details", {
     project,
     labels,
