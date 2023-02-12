@@ -142,6 +142,7 @@
               onclick="event.preventDefault();"
             >
               Select Author
+              <a href="#" class="author__close">&times;</a>
             </button>
             <div class="filter-dropdown-author-content">
               <div class="filter-dropdown-author-item-list">
@@ -149,9 +150,10 @@
 
                 <div class="filter-dropdown-author-item">
                   <input
-                    type="checkbox"
+                    type="radio"
                     value="<%= item.author.trim() %>"
                     id="<%= item.author.trim() %>"
+                    name="author"
                   />
                   <label for="<%= item.author.trim() %>">
                     <%= item.author.trim() %>

@@ -88,3 +88,14 @@ input[type="checkbox"] {
   margin-bottom: 50px;
   margin-top: 30px;
 }
+.author__close {
+  position: absolute;
+  right: 15px;
+  top: 5px;
+  font-size: 22px;
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
+  left: 84px;
+  top: -15px;
+}

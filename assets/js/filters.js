@@ -59,7 +59,7 @@ checkboxesAuthor.forEach((checkbox) => {
       selectedAuthors.push(authLabel);
 
       console.log(selectedAuthors);
-      findAuthors(issueSubContainers);
+      findAuthors(authLabel, issueSubContainers);
     } else {
       const authLabel = event.target.value.trim().toLowerCase();
       const index = selectedAuthors.indexOf(authLabel);
@@ -67,30 +67,34 @@ checkboxesAuthor.forEach((checkbox) => {
         selectedAuthors.splice(index, 1);
       }
       findAuthors(issueSubContainers);
-      //condition to revert back to original display if nothing is selected
-      if (selectedAuthors.length == 0) {
-        issueSubContainers.forEach(function (issueSubContainer) {
-          issueSubContainer.style.display = "block";
-        });
-      }
     }
   });
 });
 
 //common function to find authors
-function findAuthors(issueSubContainers) {
+function findAuthors(authLabel, issueSubContainers) {
   issueSubContainers.forEach(function (issueSubContainer) {
     const author = issueSubContainer
       .querySelector(".issue-container-author")
       .textContent.toLowerCase();
 
-    if (selectedAuthors.includes(author)) {
+    if (author === authLabel) {
       issueSubContainer.style.display = "block";
     } else {
       issueSubContainer.style.display = "none";
     }
   });
 }
+
+//handling click on cross icon for authors
+const close = document.querySelector(".author__close");
+close.addEventListener("click", function (e) {
+  //condition to revert back to original display if nothing is selected
+  selectedAuthors.length = 0;
+  issueSubContainers.forEach(function (issueSubContainer) {
+    issueSubContainer.style.display = "block";
+  });
+});
 
 //display/hide labels dropdown
 const dropdownButtonLabel = document.querySelector(
@@ -146,7 +150,7 @@ function findLabels(issueSubContainers) {
       .textContent.toLowerCase()
       .split(",");
 
-    let result = selectedLabel.some(function (element) {
+    let result = selectedLabel.every(function (element) {
       return label.indexOf(element) !== -1;
     });
 
