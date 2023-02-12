@@ -17,7 +17,7 @@ createProjectBtn.addEventListener("click", () => {
 });
 
 const clickables = document.getElementsByClassName("clickable");
-console.log(clickables);
+
 Array.from(clickables).forEach(function (clickable) {
   clickable.addEventListener("click", function (e) {
     // get the id of the parent div (project-details)

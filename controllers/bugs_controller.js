@@ -27,7 +27,6 @@ module.exports.createIssue = async (req, res) => {
 
   const labelIds = [];
   const labelsArr = labels.split(", ");
-  console.log("labels", labelsArr);
 
   if (Array.isArray(labelsArr) && labelsArr.length > 0) {
     for (let label of labelsArr) {

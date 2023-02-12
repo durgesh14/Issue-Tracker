@@ -96,6 +96,7 @@ input[type="checkbox"] {
   font-weight: bold;
   color: #333;
   cursor: pointer;
-  left: 8em;
+  left: 75%;
   top: -0.8em;
+  width: 5px;
 }

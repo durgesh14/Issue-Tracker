@@ -67,6 +67,6 @@ function labelsArray() {
   for (let tag of tags) {
     tagTexts.push(tag.textContent);
   }
-  console.log(tagTexts.join(", "));
+
   document.getElementById("labels").value = tagTexts;
 }

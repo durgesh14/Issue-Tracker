@@ -13,7 +13,7 @@ module.exports.renderHome = async (req, res) => {
   }
 
   const projects = await Project.find({});
-  // console.log(projects.map((project) => project.name));
+
   if (!projects) {
     return res.status(404).send({ error: "Project not found" });
   }
@@ -22,7 +22,6 @@ module.exports.renderHome = async (req, res) => {
 };
 
 module.exports.createProject = async (req, res) => {
-  console.log(req.body.name);
   const project = new Project({
     name: req.body.name,
     description: req.body.desc,

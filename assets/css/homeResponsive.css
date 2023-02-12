@@ -1,0 +1,39 @@
+@media (width < 768px) {
+  .container {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    height: 100%;
+    flex-direction: column;
+  }
+  .create-project {
+    margin-top: 10px;
+    width: 100%;
+  }
+
+  .list-projects {
+    width: 100%;
+  }
+  .project-details {
+    width: unset;
+  }
+  .scrollable-list {
+    height: 55vh;
+  }
+  .project-details-name {
+    font-size: large;
+  }
+  h2 {
+    font-size: x-large;
+  }
+  .create-btn {
+    font-size: 18px;
+  }
+  .form input[type="text"] {
+    width: 100% !important;
+  }
+  .form {
+    padding-right: 1em;
+    padding-left: 1em;
+  }
+}

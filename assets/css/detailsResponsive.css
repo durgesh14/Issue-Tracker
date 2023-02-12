@@ -1,0 +1,84 @@
+@media only screen and (max-width: 768px) {
+  .header {
+    font-size: unset;
+  }
+  .wrapper a {
+    font-size: unset;
+    margin: unset;
+    margin-left: 5px;
+  }
+  .nav {
+    margin-top: 1em;
+  }
+  .container {
+    display: flex;
+    flex-direction: column;
+    height: 65px;
+  }
+
+  .main-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .filter-container {
+    position: relative;
+    width: 100%;
+    background-color: unset;
+    padding: 20px;
+    box-sizing: border-box;
+    background-image: url("/images/modal-background.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-top-right-radius: 10px;
+    top: unset;
+    border-radius: unset;
+  }
+
+  .issue-container {
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    margin-left: unset;
+  }
+  .issue-container-header {
+    font-size: x-large;
+  }
+  .filter-container-search,
+  .filter-container-byLabel {
+    margin-top: unset;
+  }
+  .filter-container-byLabel {
+    margin-bottom: 20px;
+  }
+
+  /* Form responsiveness */
+  .modal__content {
+    width: 80vw;
+  }
+  input[type="text"],
+  textarea {
+    width: 95%;
+  }
+  #issue-labels {
+    width: 100%;
+  }
+  .dropdown-item-label {
+    width: 82%;
+  }
+  .author__close {
+    left: 78vw;
+  }
+}
+
+@media (width < 440px) {
+  .author__close {
+    left: 70vw;
+  }
+
+  .wrapper a {
+    font-size: 12px;
+    font-weight: 600;
+    padding: 5px;
+  }
+}
