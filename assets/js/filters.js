@@ -107,7 +107,8 @@ dropdownButtonLabel.addEventListener("click", function () {
     dropdownContentLabel.classList.add("show");
   }
 });
-//Function for seacrh by labels functionality
+
+//Function for search by labels functionality
 const checkboxesLabel = document.querySelectorAll(
   ".filter-dropdown-label-item input"
 );
@@ -119,7 +120,6 @@ checkboxesLabel.forEach((checkbox) => {
       const label = event.target.value.trim().toLowerCase();
       selectedLabel.push(label);
 
-      console.log(selectedLabel);
       findLabels(issueSubContainers);
     } else {
       const label = event.target.value.trim().toLowerCase();
