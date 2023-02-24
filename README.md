@@ -34,3 +34,10 @@ At the bottom of the project detail page is a button to create a new issue for t
 The create issue page allows the user to create a new issue for the selected project by providing a title, description, and labels. The user can also select the author of the issue. As the user types a label, existing labels for the project will appear in a dropdown, allowing the user to easily select an existing label or create a new one.
 
 Upon submitting the form, the new issue will be added to the list of issues on the project detail page.
+
+### Screenshots:
+![image](https://user-images.githubusercontent.com/34915741/221305618-9eb1d541-00c7-412a-aa59-4951f3a1c632.png)
+![image](https://user-images.githubusercontent.com/34915741/221306436-eca62806-2bae-4ae5-88aa-12fd93075977.png)
+![image](https://user-images.githubusercontent.com/34915741/221306502-9daa489c-a6ff-438c-9037-525fd8a90b06.png)
+
+
