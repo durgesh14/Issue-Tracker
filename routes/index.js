@@ -4,7 +4,7 @@ const router = express.Router();
 
 const path = require("path");
 
-// maps a sub-route to "/users"
+// maps a sub-route to "/home"
 router.use("/", require("./home"));
 
 // Create a middleware function for handling incorrect routes

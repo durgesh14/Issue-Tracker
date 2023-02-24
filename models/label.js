@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
+//Creating Schema for label with lables and project.
 const labelSchema = new Schema({
   labels: {
     type: Array,

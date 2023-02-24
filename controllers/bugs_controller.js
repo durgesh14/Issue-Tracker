@@ -1,6 +1,9 @@
 const Project = require("../models/Project");
 const Label = require("../models/Label");
 const Issue = require("../models/Issue");
+
+// Renders the details page for a project with the given projectId.
+// Displays the project details, list of labels associated with the project, and a list of issues associated with the project.
 module.exports.detailsPage = async (req, res) => {
   const projectId = req.query.projectId;
   const project = await Project.findById(projectId);
@@ -20,14 +23,16 @@ module.exports.detailsPage = async (req, res) => {
   });
 };
 
+// Creates a new issue with the given title, description, labels, author, and projectId.
+// The labels are added to the Label collection if they don't already exist for the project.
 module.exports.createIssue = async (req, res) => {
-  //TODO: currently lable is string need to modify the function for lable == array
   const { title, description, labels, author } = req.body;
   const projectId = req.body.projectId;
 
   const labelIds = [];
   const labelsArr = labels.split(", ");
 
+  // Create new labels and add them to the Label collection
   if (Array.isArray(labelsArr) && labelsArr.length > 0) {
     for (let label of labelsArr) {
       const newLabel = new Label({ labels: label, project: projectId });
@@ -35,7 +40,7 @@ module.exports.createIssue = async (req, res) => {
       await newLabel.save();
     }
   }
-
+  // Create a new issue and save it to the Issue collection
   const newIssue = new Issue({
     title,
     description,

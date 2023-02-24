@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
-//Creating Schema for user having email, password name and timestamp
 
-//Todo - add issue in schema
+//Creating Schema for project with name, description and author.
+
 const projectSchema = new mongoose.Schema(
   {
     name: {

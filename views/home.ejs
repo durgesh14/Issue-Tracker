@@ -14,6 +14,7 @@
       <header>Dashboard</header>
     </div>
     <div class="container">
+      <!-- div block for create project -->
       <div class="create-project">
         <% if (!showForm) { %>
         <button id="create-project-btn" class="create-btn">
@@ -21,6 +22,7 @@
         </button>
         <% } else { %> <%- include('form'); -%> <% } %>
       </div>
+      <!-- div block of project -->
       <div class="list-projects">
         <h2>List of Projects</h2>
         <div class="scrollable-list">

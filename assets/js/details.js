@@ -4,7 +4,7 @@ const dropdownContent = document.querySelector(".dropdown-content");
 const submitButton = document.querySelector("#submit-labels");
 const input = document.getElementById("issue-labels");
 const container = input.parentNode;
-
+//click event listner when user click on the label dropdown in pop modal
 dropdownButton.addEventListener("click", function () {
   if (dropdownContent.classList.contains("show")) {
     dropdownContent.classList.remove("show");
@@ -17,6 +17,7 @@ dropdownButton.addEventListener("click", function () {
 const checkboxes = document.querySelectorAll('input[type="checkbox"]');
 const selectedValues = [];
 
+//handling checkbox clicks for label selection
 checkboxes.forEach((checkbox) => {
   checkbox.addEventListener("change", function (event) {
     if (event.target.checked) {
@@ -61,12 +62,14 @@ input.addEventListener("keydown", function (event) {
   }
 });
 
+//creates an array of label tag texts and sets the value of the hidden input field with the id "labels" to the comma-separated list of tag texts.
 function labelsArray() {
   const tags = document.querySelectorAll(".tag");
-  let tagTexts = [];
+  let tagTexts = new Set();
   for (let tag of tags) {
-    tagTexts.push(tag.textContent);
+    tagTexts.add(tag.textContent);
   }
 
+  tagTexts = [...tagTexts];
   document.getElementById("labels").value = tagTexts;
 }

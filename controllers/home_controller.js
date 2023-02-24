@@ -6,6 +6,8 @@ const ejs = require("ejs");
 const fs = require("fs");
 const path = require("path");
 
+// Renders the home page with a list of all projects and a form for creating a new project.
+// If req.query.showForm is "true", the form will be displayed.
 module.exports.renderHome = async (req, res) => {
   let showForm = false;
   if (req.query.showForm === "true") {
@@ -21,6 +23,7 @@ module.exports.renderHome = async (req, res) => {
   res.render("home", { showForm, projects });
 };
 
+// Creates a new project with the given name, description, and author in the database.
 module.exports.createProject = async (req, res) => {
   const project = new Project({
     name: req.body.name,
@@ -37,6 +40,7 @@ module.exports.createProject = async (req, res) => {
   }
 };
 
+// Renders a form for creating a new project.
 module.exports.togglForm = async (req, res) => {
   res.send(
     ejs.render(
